@@ -4,6 +4,7 @@ const routes = require('./routes');
 const helmet = require('helmet');
 const morgan = require('morgan');
 const logger = require('./utils/logger')
+const notFoundHandler = require('./middleware/notFound');
 
 
 const app = express();
@@ -15,6 +16,9 @@ if(process.env.NODE_ENV === 'development') {
   app.use(morgan('common'));
 }
 app.use(routes);
+
+app.use(notFoundHandler);
+
 
 const PORT = process.env.PORT || 9000;
 
