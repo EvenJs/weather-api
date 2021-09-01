@@ -2,12 +2,13 @@ class CurrentWeather {
   constructor(rawData) {
     const { dt, main, weather, wind } = rawData;
     this.time = dt;
+    this.temp = main.temp
     this.minTemp = main.temp_min;
     this.maxTemp = main.temp_max;
     this.humidity = main.humidity;
     this.windSpeed = wind.speed;
-    this.weather = weather.main;
-    this.weatherDescription = weather.description;
+    this.weather = weather[0].main;
+    this.weatherDescription = weather[0].description;
     this.windDirection = this.calculateWindDirection(wind.deg);
   }
 

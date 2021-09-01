@@ -12,7 +12,7 @@ router.get('/:city', (req, res, next) => {
   const { city } = req.params;
   const weatherType = req.query.weatherType;
   weather
-    .getData(city)
+    .getData(city, weatherType)
     .then(response => responseFormatter(res, 200, null, response))
     .catch(err => next(err));
 });
