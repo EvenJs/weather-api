@@ -20,7 +20,6 @@ class Weather {
       filterData(weather, weatherType);
       return weather;
     });
-
   }
 }
 

@@ -9,7 +9,7 @@ module.exports = (error, req, res, next) => {
     console.log(error.response.status);
     console.log(error.response.headers);
     const data = error.response.data;
-    if (error.response.data.cod === '429') {
+    if (data.cod === '429') {
       logger.warn(data.message);
       return responseFormatter(res, 503, 'The server is busy at the moment, please try again later', null);
     }

@@ -1,11 +1,11 @@
 const express = require('express');
-// const axios = require('../utils/axios');
+const axios = require('../utils/axios');
 const weather = require('../models/Weather');
 const responseFormatter = require('../utils/responseFormatter');
 
 
 const router = express.Router();
-// const APPID = process.env.APPID;
+const APPID = process.env.APPID;
 
 router.get('/:city', (req, res, next) => {
   //res.send('weather');
